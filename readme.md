@@ -1,6 +1,6 @@
-## BuddyPress Changelog Generator
+## bbPress Changelog Generator
 
-Takes all relevant commits from BuddyPress Trac and renders it to a format suitable for a changelog post on the BuddyPress codex.
+Takes all relevant commits from bbPress Trac and renders it to a format suitable for a changelog post on the bbPress codex.
 
 ### How to use
 
@@ -13,7 +13,8 @@ Takes all relevant commits from BuddyPress Trac and renders it to a format suita
          - Merge multiple commits referencing the same ticket
          - Remove commits referencing the older maintenance branch
          - Rephrase or summarize where needed, etc.
-  - Once ready, copy and paste the contents into the BP codex changelog post (eg. codex.buddypress.org/releases/version-2-X)
+  - Once ready, copy and paste the contents into the bbPress codex changelog post (eg. codex.bbpress.org/releases/version-2-X)
 
 ### Thanks
   - [phpQuery](https://github.com/phpquery/phpquery) - A PHP library that parses HTML using jQuery's syntax.  Licensed under the MIT.
+  - [bp-changelog](https://github.com/r-a-y/bp-changelog) - The original BuddyPress Changelog Generator

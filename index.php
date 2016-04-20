@@ -2,22 +2,22 @@
 
 /** SETTINGS *************************************************************/
 
-// BP version number
-$v = '2.3.0';
+// bbPress version number
+$v = '2.6.0';
 
-// BP DB version number
-// this is the "db_version" number in /src/bp-loader.php
+// bbPress DB version number
+// this is the "db_version" number in /src/bbpress.php
 $db = '9848';
 
 // changesets
-$first_rev = '9443'; // 2.3 begins
-$last_rev  = '9895'; // 2.3 ends
+$first_rev = '5214'; // 2.6 begins
+$last_rev  = '6010'; // 2.6 ends
 
 /** OUTPUT ***************************************************************/
 ?>
 
-	<p>Version <?php echo $v; ?> is a major BuddyPress feature release.</p>
-	<p>For Version <?php echo $v; ?>, the database version (_bp_db_version in wp_options) was <?php echo $db; ?>, and the Trac revision was <?php echo $last_rev; ?>. Read the full ticket log here <a href="https://buddypress.trac.wordpress.org/milestone/<?php echo $v; ?>">here</a>.</p>
+	<p>Version <?php echo $v; ?> is a major bbPress feature release.</p>
+	<p>For Version <?php echo $v; ?>, the database version (_bbp_db_version in wp_options) was <?php echo $db; ?>, and the Trac revision was <?php echo $last_rev; ?>. Read the full ticket log here <a href="https://bbpress.trac.wordpress.org/milestone/<?php echo $v; ?>">here</a>.</p>
 
 <!-- highlights -->
 
@@ -186,7 +186,7 @@ ul li {margin-bottom: .5em;}
 require 'phpQuery.php';
 
 // parse Trac log
-phpQuery::newDocumentFileHTML( "https://buddypress.trac.wordpress.org/log/?action=stop_on_copy&mode=stop_on_copy&rev={$last_rev}&stop_rev={$first_rev}&limit=999&verbose=on" );
+phpQuery::newDocumentFileHTML( "https://bbpress.trac.wordpress.org/log/?action=stop_on_copy&mode=stop_on_copy&rev={$last_rev}&stop_rev={$first_rev}&limit=999&verbose=on" );
 
 // get all changeset links
 $changesets = array();
@@ -198,7 +198,7 @@ foreach ( pq( 'a.chgset' ) as $changeset ) {
 		pq( $changeset )->attr( 'href' )
 	);
 
-	$changesets[] = '(<a href="https://buddypress.trac.wordpress.org' . pq( $changeset )->attr( 'href' ) . '">r' . $n . '</a>)';
+	$changesets[] = '(<a href="https://bbpress.trac.wordpress.org' . pq( $changeset )->attr( 'href' ) . '">r' . $n . '</a>)';
 }
 
 // get all commit messages
@@ -211,11 +211,11 @@ foreach ( pq( 'td.log' ) as $msg ) {
 foreach ( $msgs as $key => $msg ) {
 	// replace relative links with absolute links
 	// replace <tt> tag with <code>
-	// replace BuddyPress Trac wiki links
+	// replace bbPress Trac wiki links
 	// replace WordPress Trac wiki links
 	$msg = str_replace(
-		array( 'href="', '<tt>', '</tt>', '<a class="wiki" href="https://buddypress.trac.wordpress.org/wiki/BuddyPress">BuddyPress</a>', '<a class="wiki" href="https://buddypress.trac.wordpress.org/wiki/WordPress">WordPress</a>' ),
-		array( 'href="https://buddypress.trac.wordpress.org', '<code>', '</code>', 'BuddyPress', 'WordPress' ),
+		array( 'href="', '<tt>', '</tt>', '<a class="wiki" href="https://bbpress.trac.wordpress.org/wiki/bbPress">bbPress</a>', '<a class="wiki" href="https://bbpress.trac.wordpress.org/wiki/WordPress">WordPress</a>' ),
+		array( 'href="https://bbpress.trac.wordpress.org', '<code>', '</code>', 'bbPress', 'WordPress' ),
 		$msg
 	);
 
